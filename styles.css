@@ -55,6 +55,7 @@ button{
 }
 .quote-box{
   background-color: white;
+  font-size: 30px;
   border: 2px black;
   border-radius: 10px;
   padding: 50px;
