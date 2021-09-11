@@ -53,6 +53,10 @@ button{
   margin-left:150px;
 
 }
+button:hover{
+  background:black
+}
+
 .quote-box{
   background-color: white;
   font-size: 30px;

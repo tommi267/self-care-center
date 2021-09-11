@@ -46,7 +46,6 @@ function getRandomIndex(array) {
 
 function showMessage() {
   var value = document.querySelector('input[name="message"]:checked').value;
-  console.log(value);
   if (value == 'Affirmation'){
     var randomAffirmation = getRandomIndex(affirmation);
     showQuote.innerText = affirmation[randomAffirmation];
