@@ -1,7 +1,7 @@
 var showQuote = document.querySelector('.quote-box');
 var receiveMessageBtn = document.querySelector('.receive-message');
-
-
+var clearMessageBtn = document.querySelector('.clear-message');
+var inputs = document.querySelectorAll('.input');
 var affirmation = [
   'I forgive myself and set myself free.',
   'I believe I can be all that I want to be.',
@@ -35,9 +35,19 @@ var mantra = [
   'I am the sky, the rest is weather.',
 ];
 
+inputs.forEach(input =>{
+  input.addEventListener('click',stateHandle)
+})
+
 receiveMessageBtn.addEventListener('click',showMessage);
+clearMessageBtn.addEventListener('click',clearMessage);
 
-
+function stateHandle(){
+  var value = document.querySelector('input[name="message"]:checked').value;
+  if(value == 'Affirmation'|| value == 'Mantra'){
+    receiveMessageBtn.disabled = false;
+  }
+}
 
 
 function getRandomIndex(array) {
@@ -49,12 +59,16 @@ function showMessage() {
   if (value == 'Affirmation'){
     var randomAffirmation = getRandomIndex(affirmation);
     showQuote.innerText = affirmation[randomAffirmation];
-
+    clearMessageBtn.disabled = false;
   }
   if (value == 'Mantra'){
     var randomMantra = getRandomIndex(mantra);
     showQuote.innerText = mantra[randomMantra];
-
+    clearMessageBtn.disabled = false;
   }
+}
 
+function clearMessage(){
+  var img = '<img src = "./assets/meditate.svg">'
+  showQuote.innerHTML = img
 }
